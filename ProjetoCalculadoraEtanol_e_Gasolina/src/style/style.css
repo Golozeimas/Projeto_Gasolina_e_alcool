@@ -62,4 +62,9 @@
     border-radius: 5px;
     margin-top: 1rem;
     width: 400px;
+    transition: all 0.3s ease-in-out;
+}
+
+.result:hover{
+    transform: scale(1.05);
 }
