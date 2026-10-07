@@ -23,6 +23,12 @@ function App() {
             setResult("Gasolina é a melhor opção")
         }
     }
+
+    function brazilianFormat(value: number): string{
+
+        return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+    
+    }
     return (
         <div className="App">
             <div className="App-main">        
@@ -36,14 +42,17 @@ function App() {
                 type="number" 
                 placeholder="Preço do Etanol"
                 value={etanolPrice}
-                onChange={(e) => setEtanolPrice(parseFloat(e.target.value) || 0)} />
+                onChange={(e) => setEtanolPrice(parseFloat(e.target.value) || 0)} 
+                required
+                />
                 <h4>Gasolina preço por litro</h4>
                 
                 <input 
                 type="number" 
                 placeholder="Preço da Gasolina"
                 value={gasolinaPrice}
-                onChange={(e) => setGasolinaPrice(parseFloat(e.target.value) || 0)} 
+                onChange={(e) => setGasolinaPrice(parseFloat(e.target.value) || 0)}
+                required
                 />
                 
                 <button onClick={handleCalculate}>
@@ -53,8 +62,8 @@ function App() {
                 {result && (
                     <div className="result">
                         <h4>{result}</h4>
-                        <p>O preço da gasolina é: R$ {gasolinaPrice.toFixed(2)}</p>
-                        <p>O preço do etanol é: R$ {etanolPrice.toFixed(2)}</p>
+                        <p>O preço da gasolina é: {brazilianFormat(gasolinaPrice)}</p>
+                        <p>O preço do etanol é: {brazilianFormat(etanolPrice)}</p>
                     </div>
                 )}
             </div>
