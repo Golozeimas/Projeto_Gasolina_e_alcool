@@ -49,10 +49,14 @@ function App() {
                 <button onClick={handleCalculate}>
                     Calcular
                 </button>
-
-                <div className="result">
-                    {result}
-                </div>
+                
+                {result && (
+                    <div className="result">
+                        <h4>{result}</h4>
+                        <p>O preço da gasolina é: R$ {gasolinaPrice.toFixed(2)}</p>
+                        <p>O preço do etanol é: R$ {etanolPrice.toFixed(2)}</p>
+                    </div>
+                )}
             </div>
         </div>
     )

@@ -55,3 +55,11 @@
     font-size: 1.2rem;
     cursor: pointer;
 }
+
+.result{
+    background-color: #2deb43;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    width: 400px;
+}
