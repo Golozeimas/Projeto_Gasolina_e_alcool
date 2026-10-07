@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.App{
+    background-color: #708090;
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.App-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.App-main h1{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.App-main h4{
+    align-self: flex-start;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.App-main input{
+    width: 400px;
+    height: 30px;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+}
+
+.App-main button{
+    width: 400px;
+    height: 40px;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #1E90FF;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
