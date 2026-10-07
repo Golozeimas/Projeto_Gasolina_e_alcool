@@ -1,35 +1,153 @@
-# React + TypeScript + Vite
+# Calculadora de Etanol e Gasolina
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Aplicação web desenvolvida com **React, TypeScript e Vite** para comparar os preços do etanol e da gasolina e indicar qual opção apresenta melhor custo-benefício com base na regra dos 70%.
 
-Currently, two official plugins are available:
+## Funcionalidade
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+O usuário informa:
 
-## React Compiler
+- preço do litro do etanol;
+- preço do litro da gasolina.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+A aplicação calcula:
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+```text
+preço da gasolina × 0,70
+```
 
-## Expanding the Oxlint configuration
+Se o preço do etanol for menor que esse valor, o sistema recomenda o etanol. Caso contrário, recomenda a gasolina.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+Exemplo:
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
+```text
+Gasolina: R$ 6,00
+Etanol: R$ 3,90
+
+6,00 × 0,70 = 4,20
+
+Como 3,90 < 4,20:
+Etanol é a melhor opção.
+```
+
+## Tecnologias
+
+- React
+- TypeScript
+- Vite
+- CSS
+- Oxlint
+
+## Conceitos aplicados
+
+O projeto utiliza recursos básicos do React e TypeScript, incluindo:
+
+- `useState` para controle de estado;
+- inputs controlados;
+- tratamento de eventos;
+- renderização condicional;
+- validação de valores;
+- tipagem com TypeScript.
+
+## Estrutura
+
+```text
+ProjetoCalculadoraEtanol_e_Gasolina/
+├── src/
+│   ├── assets/
+│   ├── style/
+│   │   └── style.css
+│   ├── App.tsx
+│   └── main.tsx
+├── index.html
+├── package.json
+├── pnpm-lock.yaml
+├── tsconfig.json
+├── tsconfig.app.json
+├── tsconfig.node.json
+└── vite.config.ts
+```
+
+## Execução
+
+### Pré-requisitos
+
+- Node.js
+- pnpm
+
+### Clone o repositório
+
+```bash
+git clone https://github.com/Golozeimas/Projeto_Gasolina_e_alcool.git
+```
+
+### Acesse o diretório da aplicação
+
+```bash
+cd Projeto_Gasolina_e_alcool/ProjetoCalculadoraEtanol_e_Gasolina
+```
+
+### Instale as dependências
+
+```bash
+pnpm install
+```
+
+### Execute em ambiente de desenvolvimento
+
+```bash
+pnpm dev
+```
+
+A aplicação será disponibilizada pelo servidor de desenvolvimento do Vite.
+
+## Scripts
+
+```bash
+pnpm dev
+```
+
+Inicia o ambiente de desenvolvimento.
+
+```bash
+pnpm build
+```
+
+Realiza a compilação do TypeScript e gera a build de produção.
+
+```bash
+pnpm preview
+```
+
+Executa localmente a build de produção.
+
+```bash
+pnpm lint
+```
+
+Executa a análise estática do projeto com Oxlint.
+
+## Regra de cálculo
+
+A lógica principal está implementada da seguinte forma:
+
+```ts
+const limiteEtanol = gasolinaPrice * 0.7
+
+if (etanolPrice < limiteEtanol) {
+    setResult("Etanol é a melhor opção")
+} else {
+    setResult("Gasolina é a melhor opção")
 }
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Também é realizada uma validação para impedir o cálculo com valores menores ou iguais a zero.
+
+## Objetivo
+
+Projeto desenvolvido para praticar fundamentos de desenvolvimento front-end com React e TypeScript, com foco em gerenciamento de estado, manipulação de formulários e implementação de uma regra de negócio simples.
+
+## Autor
+
+João Matheus Ramos Araujo
+
+GitHub: [@Golozeimas](https://github.com/Golozeimas)
